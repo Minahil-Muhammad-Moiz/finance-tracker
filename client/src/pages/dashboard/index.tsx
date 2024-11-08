@@ -1,7 +1,7 @@
 import { useUser } from "@clerk/clerk-react";
 import { FinancialRecordForm } from "./financial-record-form";
 import { FinancialRecordList } from "./financial-record-list";
-// import "./financial-record.css";
+import "./financial-record.css";
 import { useFinancialRecords } from "../../contexts/financial-record-context";
 import { useMemo } from "react";
 export const Dashboard = () => {
@@ -18,11 +18,14 @@ export const Dashboard = () => {
   }, [records]);
 
   return (
-    <div className="dashboard-container">
+    <>
+    
+    <div className="dashboard-container !my-10 !mx-6">
       <h1> Welcome {user?.firstName}! Here Are Your Finances:</h1>
       <FinancialRecordForm />
       <div>Total Monthly: ${totalMonthly}</div>
       <FinancialRecordList />
     </div>
+    </>
   );
 };
